@@ -1,0 +1,10 @@
+$destino = $_SERVER['DOCUMENT_ROOT'] . '/extranet/files/##nome##/' . $form['id'] . '/';
+$ext_perm = array('jpg', 'bmp', 'gif', 'png', 'pdf');
+include ('_upload_file.php');
+$arquivos = glob($_SERVER['DOCUMENT_ROOT'] . '/extranet/files/##nome##/' . $form['id'] . '/*.*');
+if(count($arquivos)>0) {
+	$lista_arquivos = array();
+	foreach ($arquivos as $arquivo) {
+		$lista_arquivos[] = array_pop(explode($_SERVER['DOCUMENT_ROOT'], $arquivo));
+	}
+}
